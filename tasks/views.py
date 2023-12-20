@@ -22,3 +22,12 @@ def create_task(request):
     }
 
     return render(request, "tasks/create_task.html", context)
+
+
+@login_required
+def show_my_tasks(request):
+    assigned_tasks = Task.objects.filter(assignee=request.user)
+    context = {
+        "assigned_tasks": assigned_tasks,
+    }
+    return render(request, "tasks/my_task.html", context)
