@@ -7,4 +7,5 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display = [
         "name",
         "description",
+        "id",
     ]
